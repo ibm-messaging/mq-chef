@@ -1,0 +1,9 @@
+.vagrant
+Berksfile
+Berksfile.lock
+.kitchen*
+spec/*
+test/*
+.git
+.gitignore
+Thumbs.db

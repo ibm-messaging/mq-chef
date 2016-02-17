@@ -1,0 +1,5 @@
+.vagrant
+Berksfile.lock
+.kitchen/
+.kitchen.local.yml
+Thumbs.db
