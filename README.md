@@ -29,6 +29,7 @@ Usage
 ibm_mq_installation 'Installation1' do
   source 'http://10.0.2.15:8000/WS_MQ_V8.0.0.4_LINUX_ON_X86_64_IM.tar.gz'
   accept_license true
+  primary true
 end
 
 ibm_mq_queue_manager 'qm1' do
@@ -48,6 +49,7 @@ specified by a URI.
 ibm_mq_installation 'Installation1' do
   source 'http://10.0.2.15:8000/WS_MQ_V8.0.0.4_LINUX_ON_X86_64_IM.tar.gz'
   accept_license true
+  primary true
   action :create
 end
 ```
@@ -55,6 +57,7 @@ end
 #### Properties
 - `source` - Path to network accessible IBM MQ installation package.
 - `accept_license` - Set this to `true` if you accept the terms of the IBM MQ license.
+- `primary` - Set this to `true` to make this the primary MQ installation.  Currently not supported to set this to `false`.
 - `packages` - An array of package names to install.  Defaults to:
   `%w(MQSeriesServer MQSeriesGSKit)`
 - `uid` - The UID to use for the `mqm` user
