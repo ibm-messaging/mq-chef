@@ -15,7 +15,7 @@
 property :source, kind_of: String, required: true
 property :accept_license, kind_of: [TrueClass, FalseClass], default: false
 property :packages, kind_of: Array, default: %w(MQSeriesServer MQSeriesGSKit)
-property :default, kind_of: [TrueClass, FalseClass], default: false
+property :primary, kind_of: [TrueClass, FalseClass], default: false
 property :uid, kind_of: [String, Integer], default: nil
 property :gid, kind_of: [String, Integer], default: nil
 
@@ -30,7 +30,7 @@ default_action :create
 # * Sets the default MQ installation, as specified
 action :create do
   fail 'You must accept the license to install IBM MQ.' unless accept_license
-  fail 'Non-default installations are not currently supported' unless default
+  fail 'Non-primary installations are not currently supported' unless primary
 
   # include_recipe 'sysctl::ohai_plugin'
   #
@@ -135,10 +135,10 @@ action :create do
     action :install
   end
 
-  # TODO: Unset as default installation, if no longer default
+  # TODO: Unset as primary installation, if no longer primary
   execute 'setmqinst' do
     command '/opt/mqm/bin/setmqinst -n Installation1 -i'
-    only_if { default }
+    only_if { primary }
   end
 end
 

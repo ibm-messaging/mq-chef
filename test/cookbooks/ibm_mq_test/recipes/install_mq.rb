@@ -15,7 +15,7 @@
 ibm_mq_installation 'default' do
   source node['ibm_mq_test']['source']
   accept_license node['ibm_mq_test']['accept_license']
-  default true
+  primary true
   uid node['ibm_mq_test']['uid']
   gid node['ibm_mq_test']['gid']
   action :create
