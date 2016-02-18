@@ -22,7 +22,8 @@ Cookbook Dependencies
 Usage
 -----
 1. Add ```depends 'ibm_mq'``` to your cookbook's metadata.rb
-2. Use the resources shipped in cookbook in a recipe, the same way you'd
+2. Add ```cookbook 'ibm_mq', github: "ibm-messaging/mq-chef", tag: "v0.1.1"``` to your cookbook's `Berkshelf` file
+3. Use the resources shipped in cookbook in a recipe, the same way you'd
   use core Chef resources (file, template, directory, package, etc).
 
 ```ruby
