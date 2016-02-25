@@ -1,5 +1,6 @@
 IBM MQ cookbook
 ===============
+[![Build Status](https://travis-ci.org/ibm-messaging/mq-chef.svg?branch=master)](https://travis-ci.org/ibm-messaging/mq-chef)
 
 The IBM MQ cookbook is a library cookbook that provides custom resources for use in your own recipes.  This cookbook is currently experimental, therefore we recommend that if you want to use this cookbook, that you either pin the version you use, or create your own fork first.
 
