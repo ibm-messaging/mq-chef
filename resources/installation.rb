@@ -29,8 +29,8 @@ default_action :create
 # * Installs the MQ packages, as specified
 # * Sets the default MQ installation, as specified
 action :create do
-  fail 'You must accept the license to install IBM MQ.' unless accept_license
-  fail 'Non-primary installations are not currently supported' unless primary
+  raise 'You must accept the license to install IBM MQ.' unless accept_license
+  raise 'Non-primary installations are not currently supported' unless primary
 
   # include_recipe 'sysctl::ohai_plugin'
   #
