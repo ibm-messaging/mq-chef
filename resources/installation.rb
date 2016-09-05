@@ -18,6 +18,7 @@ property :packages, kind_of: Array, default: %w(MQSeriesServer MQSeriesGSKit)
 property :primary, kind_of: [TrueClass, FalseClass], default: false
 property :uid, kind_of: [String, Integer], default: nil
 property :gid, kind_of: [String, Integer], default: nil
+property :fixpack, kind_of: [TrueClass, FalseClass], default: nil
 
 default_action :create
 
@@ -42,6 +43,11 @@ action :create do
   download_dir = "#{Chef::Config[:file_cache_path]}/ibm_mq"
   download_path = "#{download_dir}/#{name}.tar.gz"
   unpack_dir = "#{download_dir}/extract-#{name}"
+  if property_is_set?(:fixpack)
+    pkgs_dir = unpack_dir
+  else
+    pkgs_dir = "#{unpack_dir}/MQServer"
+  end
 
   directory download_dir do
     owner 'root'
@@ -79,7 +85,7 @@ action :create do
 
   execute 'createrepo-mq' do
     user 'root'
-    cwd "#{unpack_dir}/MQServer"
+    cwd pkgs_dir
     command 'createrepo .'
   end
 
@@ -125,7 +131,7 @@ action :create do
   # Add a local yum repository
   yum_repository "ibm-mq-chef-#{name}" do
     description 'Packages for IBM MQ, used by Chef cookbook'
-    baseurl "file://#{unpack_dir}/MQServer"
+    baseurl "file://#{pkgs_dir}"
     gpgcheck false
     action :create
   end
