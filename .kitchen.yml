@@ -22,11 +22,17 @@ verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-14.04-chef-latest
+  - name: ubuntu-14.04-chef-12.16
     provisioner:
-      require_chef_omnibus: 12.6.0
+      require_chef_omnibus: 12.16
     driver:
-      box: opscode-ubuntu-14.04
+      box: bento/ubuntu-14.04
+  # We declare support for Chef 12.6+
+  - name: ubuntu-14.04-chef-12.6.0
+    provisioner:
+      require_chef_omnibus: 12.6
+    driver:
+      box: bento/ubuntu-14.04
 
 suites:
   - name: goodpath
