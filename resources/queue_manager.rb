@@ -22,6 +22,7 @@ action :create do
     user new_resource.user
     group 'mqm'
     creates '/var/mqm/qmgrs/qm1/'
+    not_if "dspmq | grep -o #{new_resource.name}"
   end
 end
 
