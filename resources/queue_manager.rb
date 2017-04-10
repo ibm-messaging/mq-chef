@@ -21,7 +21,7 @@ action :create do
     command "crtmqm #{new_resource.name}"
     user new_resource.user
     group 'mqm'
-    creates '/var/mqm/qmgrs/qm1/'
+    creates "/var/mqm/qmgrs/#{new_resource.name}/"
   end
 end
 
