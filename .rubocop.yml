@@ -1,3 +1,5 @@
 Style/RegexpLiteral:
   Exclude:
     - 'test/integration/goodpath/inspec/mq_spec.rb'
+BlockLength:
+  Max: 200
