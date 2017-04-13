@@ -1,7 +1,7 @@
 language: ruby
 
 before_install:
-  - wget https://packages.chef.io/stable/ubuntu/12.04/chefdk_1.0.3-1_amd64.deb -O /tmp/chefdk.deb
+  - wget https://packages.chef.io/files/stable/chefdk/1.3.40/ubuntu/12.04/chefdk_1.3.40-1_amd64.deb -O /tmp/chefdk.deb
   - sudo dpkg -i /tmp/chefdk.deb
 
 script:
