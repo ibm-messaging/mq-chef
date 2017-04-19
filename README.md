@@ -58,11 +58,12 @@ end
 #### Properties
 - `source` - Path to network accessible IBM MQ installation package.
 - `accept_license` - Set this to `true` if you accept the terms of the IBM MQ license.
-- `primary` - Set this to `true` to make this the primary MQ installation.  Currently not supported to set this to `false`.
-- `packages` - An array of package names to install.  Defaults to:
+- `primary` - Set this to `true` to make this the primary MQ installation. Currently not supported to set this to `false`.
+- `packages` - An array of package names to install. Defaults to:
   `%w(MQSeriesServer MQSeriesGSKit)`
 - `uid` - The UID to use for the `mqm` user
 - `gid` - The GID to use for the `mqm` user
+- `fixpack` - Set this to `true` to have MQ fixpack installed. Note that fixpack should be installed in the same base packages installation. Defaults to: `nil`
 
 ## ibm_mq_queue_manager
 The `ibm_mq_queue_manager` resource creates and starts IBM MQ queue managers.
